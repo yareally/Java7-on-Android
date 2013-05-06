@@ -39,9 +39,15 @@ http://stackoverflow.com/questions/3284407/conversion-to-dalvik-format-failed-wi
 http://code.google.com/p/maven-android-plugin/issues/detail?id=214
 for more details.
 
+
 Q) Can you get Java 8 working?
 
 A) Tried that and no go. If you have better luck, let me know. I would love to have lambdas.
+
+
+Q) Won't this affect the entire Android System and not just my app?
+
+A) Since every Android app is sandboxed, only your code is affected.
 
 
 Q) Do you have example code showing things working?
