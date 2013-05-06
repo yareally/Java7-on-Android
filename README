@@ -11,6 +11,11 @@ Using Java 7 on Android.
 
 --Frequently Asked Questions--
 
+Q) Does this really work on stock, unrooted/unmodified Android?
+
+A) Yup, because it's either using syntatic sugar features (which does not modify the bytecode) or it overrides the existing Android libraries.
+
+
 Q) Help! I'm getting some error related to java: cannot find method addSuppressed(java.lang.Throwable). How do I fix this?
 
 A) You probably allowed your IDE auto-formatter to reformat the java.lang.* files you included from above or manually pasted the files into your IDE instead of importing/cloning them (which also triggered auto format). Modifying these files (even accidentally) is asking for trouble as such things can make the project revert back to using the internal Android Throwable instead of the project version. You can fix this by pasting the original file outside of your IDE or reclone the source again. I recommend setting the project java.lang.* package to be read only to prevent any accidental mishaps. It's also possible it might randomly still give you this error (with Intellij IDEA at least). If it does, just do the steps mentioned above.
@@ -65,6 +70,11 @@ Q) What doesn't work?
 3) File change notifications (watch/notify file api stuff)
 
 4) invokedynamic
+
+
+Q) Why doesn't Google implement these features themselves if they work?
+
+A) You would have to ask Google as all I can do is speculate.
 
 
 Q) Will this work on Eclipse/Netbeans/etc?
