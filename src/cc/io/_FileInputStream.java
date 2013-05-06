@@ -30,7 +30,7 @@ import android.util.Log;
 import java.io.*;
 import java.nio.channels.FileChannel;
 
-public class _FileInputStream extends InputStream implements AutoCloseable
+public class _FileInputStream extends InputStream implements java.lang.AutoCloseable
 {
     private FileInputStream fis;
 

@@ -28,7 +28,7 @@ package cc.io;
 import android.util.Log;
 import java.io.*;
 
-public class _BufferedOutputStream implements AutoCloseable, Flushable
+public class _BufferedOutputStream implements java.lang.AutoCloseable, Flushable
 {
     private BufferedOutputStream bos;
 

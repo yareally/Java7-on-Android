@@ -10,7 +10,7 @@ import java.io.InputStream;
  * @author Wes Lanning
  * @version 2013-05-05
  */
-public class _BufferedInputStream implements AutoCloseable
+public class _BufferedInputStream implements java.lang.AutoCloseable
 {
     private BufferedInputStream bis;
 

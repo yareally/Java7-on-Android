@@ -30,7 +30,7 @@ import android.util.Log;
 import java.io.*;
 import java.nio.channels.FileChannel;
 
-public class _FileOutputStream implements AutoCloseable, Flushable
+public class _FileOutputStream implements java.lang.AutoCloseable, Flushable
 {
     private FileOutputStream fos;
 
