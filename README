@@ -56,7 +56,7 @@ A) All the syntatic sugar stuff and also "try with resources." (see below)
 
 3) Multiple exception caught in one catch block
 
-4) Integer literals for readability (e.g. 100_000_000 or 20_000)
+4) Integer (and binary) literals for readability (e.g. 100_000_000 or 20_000 or 0b0111_0000)
 
 5) Type inference on collections (a.k.a. "diamonds")
 
