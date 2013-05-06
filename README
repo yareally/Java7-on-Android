@@ -28,7 +28,7 @@ A) Sure, just ask me. This was just a simple (weekend) attempt to see what was p
 
 Q) Can I include this as a jar library?
 
-A) No, at least not in any easy way I know of. Android will complain about overriding system classes if you do and short of modifying the dalvik compiler sources, there is no easy way around it. Well, actually there sort of is, but it requires building with Ant directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar.
+A) No, at least not in any easy way I know of. Android will complain about overriding system classes if you do and short of modifying the dalvik compiler sources, there is no easy way around it. Well, actually there sort of is, but it requires building with Ant directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar. See https://code.google.com/p/android-rcs-ims-stack/issues/detail?id=42 http://code.google.com/p/dalvik/wiki/JavaxPackages and https://groups.google.com/forum/?fromgroups=#!topic/android-developers/msDX8ogYrd0 for more details.
 
 
 Q) Can you get Java 8 working?
