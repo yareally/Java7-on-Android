@@ -11,6 +11,32 @@ Using (features) Java 7 on Android.
 
 --Frequently Asked Questions--
 
+Q) So what works from Java 7?
+
+A) All the syntatic sugar stuff and also "try with resources." (see below)
+
+1) String Switches
+
+2) Try with resources (a.k.a "using/with", auto close)
+
+3) Multiple exception caught in one catch block
+
+4) Integer (and binary) literals for readability (e.g. 100_000_000 or 20_000 or 0b0111_0000)
+
+5) Type inference on collections (a.k.a. "diamonds")
+
+
+Q) What doesn't work?
+
+1) java.nio.*
+
+2) threading and multiple processor enhancements (fork/join)
+
+3) File change notifications (watch/notify file api stuff)
+
+4) invokedynamic
+
+
 Q) Does this really work on stock, unrooted/unmodified Android?
 
 A) Yup, because it's either using syntatic sugar features (which does not modify the bytecode) or it overrides the existing Android libraries.
@@ -58,32 +84,6 @@ A) Yes, see TestActivity. Tested and working on Android 2.2+.
 Q) Will this work for other resource classes (like ObjectInputStream)?
 
 A) I'm sure it will, I just didn't include them. See the implemented InputStreams as a template.
-
-
-Q) So what works from Java 7?
-
-A) All the syntatic sugar stuff and also "try with resources." (see below)
-
-1) String Switches
-
-2) Try with resources (a.k.a "using/with", auto close)
-
-3) Multiple exception caught in one catch block
-
-4) Integer (and binary) literals for readability (e.g. 100_000_000 or 20_000 or 0b0111_0000)
-
-5) Type inference on collections (a.k.a. "diamonds")
-
-
-Q) What doesn't work?
-
-1) java.nio.*
-
-2) threading and multiple processor enhancements (fork/join)
-
-3) File change notifications (watch/notify file api stuff)
-
-4) invokedynamic
 
 
 Q) Why doesn't Google implement these features themselves if they work?
