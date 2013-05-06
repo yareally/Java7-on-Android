@@ -94,3 +94,8 @@ A) You would have to ask Google as all I can do is speculate.
 Q) Will this work on Eclipse/Netbeans/etc?
 
 A) Probably, but I don't really know how Android works on Eclipse/Netbeans, so you're on your own for that. Ant works, but requires some modifying of the build.xml to override some of the compilation time stuff.
+
+
+Q) So, how does it work with ant?
+
+A) see: https://github.com/yareally/Java7-on-Android/blob/master/building_with_ant
