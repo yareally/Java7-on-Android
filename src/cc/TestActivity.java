@@ -36,6 +36,7 @@ import cc.test.R;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TestActivity extends Activity
@@ -98,15 +99,16 @@ public class TestActivity extends Activity
                     1_000, 2_000),
                 Toast.LENGTH_LONG).show();
 
-            byte[] writeData = new byte[] {
-                (byte) 222, (byte) 128
+            // binary literal also works
+            byte[] writeData = {
+                (byte) 0b11011110, (byte) 0b10000000
             };
 
             fos.write(writeData);
             Toast.makeText(this,
                 String.format(
-                    "Written to testfile.txt: %d %d",
-                    222, 128),
+                    "Written to testfile.txt: %s",
+                    Arrays.toString(writeData)),
                 Toast.LENGTH_LONG).show();
         } catch (IOException ioe) {
             Toast.makeText(this,
