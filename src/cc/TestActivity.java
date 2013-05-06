@@ -113,7 +113,7 @@ public class TestActivity extends Activity
             List<Integer> readData = new ArrayList<>(4);
             int nextInt;
 
-            while ((nextInt = fis.read()) == 1) {
+            while ((nextInt = fis.read()) != -1) {
                 readData.add(nextInt);
             }
 
