@@ -38,7 +38,7 @@ A) Tried that and no go. If you have better luck, let me know. I would love to h
 
 Q) Do you have example code showing things working?
 
-A) Yes, see TestActivity and Utils. Tested and working on Android 2.2+.
+A) Yes, see TestActivity. Tested and working on Android 2.2+.
 
 
 Q) Will this work for other resource classes (like ObjectInputStream)?
