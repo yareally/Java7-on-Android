@@ -1,0 +1,71 @@
+1) Go to: /android-sdk-dir/tools/ant/build.xml and open it for editing.
+
+2) Change:
+
+<property name="java.target" value="1.x" />
+<property name="java.source" value="1.x" />
+
+to:
+
+<property name="java.target" value="1.7" />
+<property name="java.source" value="1.7" />
+
+
+3) Rename <macrodef name="dex-helper"> to something like <macrodef name="_dex-helper"> so it uses 
+the modified one in #4. Commenting it out will probably also work fine.
+
+4) Override dex-helper with this modified macrodef (the important lines are --core-library and --no-strict):
+
+    <macrodef name="dex-helper">
+       <element name="external-libs" optional="yes" />
+       <element name="extra-parameters" optional="yes" />
+       <sequential>
+            <!-- sets the primary input for dex. If a pre-dex task sets it to
+                 something else this has no effect -->
+            <property name="out.dex.input.absolute.dir" value="${out.classes.absolute.dir}" />
+            <!-- set the secondary dx input: the project (and library) jar files
+                 If a pre-dex task sets it to something else this has no effect -->
+            <if>
+                <condition>
+                    <isreference refid="out.dex.jar.input.ref" />
+                </condition>
+                <else>
+                    <path id="out.dex.jar.input.ref">
+                        <path refid="project.all.jars.path" />
+                    </path>
+                </else>
+            </if>
+         <apply executable="${dx}" failonerror="true" parallel="true">
+             <arg value="--dex" />
+             <arg value="--core-library" />
+             <arg value="--no-locals" />
+             <arg value="--verbose" />
+             <arg value="--output=${intermediate.dex.file}" />
+             <arg value="--no-strict" />
+             <extra-parameters />
+             <arg path="${out.dex.input.absolute.dir}" />
+             <path refid="out.dex.jar.input.ref" />
+             <external-libs />
+         </apply>
+       </sequential>
+    </macrodef>
+
+5) add the following path above the <javac encoding="${java.encoding}" tag:
+
+<path id="project.bootpath">
+   <pathelement location="libs/core.jar" />
+   <path refid="project.target.class.path" />
+</path>
+
+This will point to your project library so you can use the modded files as a jar. 
+Make sure to name your jar file whatever you named it above (core.jar for this example). 
+This file will go in your project_dir/libs directory.
+
+6) Inside of <javac encoding="${java.encoding}", change 
+
+bootclasspathref="project.javac.classpath"
+
+to: bootclasspathref="project.bootpath"
+
+
+7) Save the file and run ant as normal.

@@ -1,4 +1,4 @@
-Using Java 7 on Android.
+Using (features) Java 7 on Android.
 
 1) Clone this project.
 
@@ -10,41 +10,6 @@ Using Java 7 on Android.
 
 
 --Frequently Asked Questions--
-
-Q) Does this really work on stock, unrooted/unmodified Android?
-
-A) Yup, because it's either using syntatic sugar features (which does not modify the bytecode) or it overrides the existing Android libraries.
-
-
-Q) Help! I'm getting some error related to java: cannot find method addSuppressed(java.lang.Throwable). How do I fix this?
-
-A) You probably allowed your IDE auto-formatter to reformat the java.lang.* files you included from above or manually pasted the files into your IDE instead of importing/cloning them (which also triggered auto format). Modifying these files (even accidentally) is asking for trouble as such things can make the project revert back to using the internal Android Throwable instead of the project version. You can fix this by pasting the original file outside of your IDE or reclone the source again. I recommend setting the project java.lang.* package to be read only to prevent any accidental mishaps. It's also possible it might randomly still give you this error (with Intellij IDEA at least). If it does, just do the steps mentioned above.
-
-
-Q) If I figure out how to get any other features working, may I commit them back to your repository?
-
-A) Sure, just ask me. This was just a simple (weekend) attempt to see what was possible and by no means a massive project. I'd love to see more contributions and any corrections made.
-
-
-Q) Can I include this as a jar library?
-
-A) No, at least not in any easy way I know of. Android will complain about overriding system classes if you do and short of modifying the dalvik compiler sources, there is no easy way around it. Well, actually there sort of is, but it requires building with Ant directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar.
-
-
-Q) Can you get Java 8 working?
-
-A) Tried that and no go. If you have better luck, let me know. I would love to have lambdas.
-
-
-Q) Do you have example code showing things working?
-
-A) Yes, see TestActivity. Tested and working on Android 2.2+.
-
-
-Q) Will this work for other resource classes (like ObjectInputStream)?
-
-A) I'm sure it will, I just didn't include them. See the implemented InputStreams as a template.
-
 
 Q) So what works from Java 7?
 
@@ -70,6 +35,60 @@ Q) What doesn't work?
 3) File change notifications (watch/notify file api stuff)
 
 4) invokedynamic
+
+
+Q) Does this really work on stock, unrooted/unmodified Android?
+
+A) Yup, because it's either using syntatic sugar features (which does not modify the bytecode) or it overrides the existing Android libraries.
+
+
+Q) Help! I'm getting some error related to java: cannot find method addSuppressed(java.lang.Throwable). How do I fix this?
+
+A) You probably allowed your IDE auto-formatter to reformat the java.lang.* files you included from above or manually pasted the files into your IDE instead of importing/cloning them (which also triggered auto format). Modifying these files (even accidentally) is asking for trouble as such things can make the project revert back to using the internal Android Throwable instead of the project version. You can fix this by pasting the original file outside of your IDE or reclone the source again. I recommend setting the project java.lang.* package to be read only to prevent any accidental mishaps. It's also possible it might randomly still give you this error (with Intellij IDEA at least). If it does, just do the steps mentioned above. My temporary solution was to just use incrontab (http://manpages.ubuntu.com/manpages/hardy/man5/incrontab.5.html) to watch for a modified file and have it replace it. 
+
+
+Q) If I figure out how to get any other features working, may I commit them back to your repository?
+
+A) Sure, just ask me. This was just a simple (weekend) attempt to see what was possible and by no means a massive project. I'd love to see more contributions and any corrections made.
+
+
+Q) Can I include this as a jar library?
+
+A) No, at least not in any easy way I know of. Android (dx.jar) will complain about overriding system classes if you do and short of modifying the dalvik compiler sources (as adding options to dx.sh/dx.bat does not work), there is no easy way around it. Well, actually there sort of is, but it requires building with Ant (see next question) directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar. 
+
+See: 
+https://code.google.com/p/android-rcs-ims-stack/issues/detail?id=42 
+http://code.google.com/p/dalvik/wiki/JavaxPackages 
+https://groups.google.com/forum/?fromgroups=#!topic/android-developers/msDX8ogYrd0 
+http://stackoverflow.com/questions/2680827/conversion-to-dalvik-format-failed-with-error-1-on-external-jar
+http://stackoverflow.com/questions/3284407/conversion-to-dalvik-format-failed-with-error-1-with-javax-net-socketfactory-cla
+http://code.google.com/p/maven-android-plugin/issues/detail?id=214
+for more details.
+
+Q) So, how does it work with ant?
+
+A) see: https://github.com/yareally/Java7-on-Android/blob/master/building_with_ant
+
+
+Q) Can you get Java 8 working?
+
+A) Tried that and no go. If you have better luck, let me know. I would love to have lambdas. 
+
+ My attempts with ant lead to vague compile errors that may be jdk8 or Android. Needs more testing, but here's basically what I get so far: https://gist.github.com/yareally/b0d095fbd1ccd4b28fe8
+
+Q) Won't this affect the entire Android System and not just my app?
+
+A) Since every Android app is sandboxed, only your code is affected.
+
+
+Q) Do you have example code showing things working?
+
+A) Yes, see TestActivity. Tested and working on Android 2.2+.
+
+
+Q) Will this work for other resource classes (like ObjectInputStream)?
+
+A) I'm sure it will, I just didn't include them. See the implemented InputStreams as a template.
 
 
 Q) Why doesn't Google implement these features themselves if they work?
