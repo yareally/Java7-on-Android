@@ -13,7 +13,7 @@ Using (features) Java 7 on Android.
 
 Q) So what works from Java 7?
 
-A) All the syntatic sugar stuff and also "try with resources." (see below)
+A) All the syntactic sugar stuff and also "try with resources." (see below)
 
 1) String Switches
 
@@ -39,12 +39,12 @@ Q) What doesn't work?
 
 Q) Does this really work on stock, unrooted/unmodified Android?
 
-A) Yup, because it's either using syntatic sugar features (which does not modify the bytecode) or it overrides the existing Android libraries.
+A) Yup, because it's either using syntactic sugar features (which does not modify the bytecode) or it overrides the existing Android libraries.
 
 
 Q) Help! I'm getting some error related to java: cannot find method addSuppressed(java.lang.Throwable). How do I fix this?
 
-A) You probably allowed your IDE auto-formatter to reformat the java.lang.* files you included from above or manually pasted the files into your IDE instead of importing/cloning them (which also triggered auto format). Modifying these files (even accidentally) is asking for trouble as such things can make the project revert back to using the internal Android Throwable instead of the project version. You can fix this by pasting the original file outside of your IDE or reclone the source again. I recommend setting the project java.lang.* package to be read only to prevent any accidental mishaps. It's also possible it might randomly still give you this error (with Intellij IDEA at least). If it does, just do the steps mentioned above. My temporary solution was to just use incrontab (http://manpages.ubuntu.com/manpages/hardy/man5/incrontab.5.html) to watch for a modified file and have it replace it. 
+A) You probably allowed your IDE auto-formatter to reformat the java.lang.* files or the cc.io.* files you included from above or manually pasted the files into your IDE instead of importing/cloning them (which also triggered auto format). Modifying these files (even accidentally) is asking for trouble as such things can make the project revert back to using the internal Android Throwable instead of the project version. You can fix this by pasting the original file outside of your IDE or reclone the source again. I recommend setting the project java.lang.* package and wherever you put the cc.io.* package to be read only to prevent any accidental mishaps. The main issue is removing the full paths on things like like java.lang.AutoClosable really. Dalvik has troubles finding it if you make it a relative path.
 
 
 Q) If I figure out how to get any other features working, may I commit them back to your repository?
@@ -54,12 +54,12 @@ A) Sure, just ask me. This was just a simple (weekend) attempt to see what was p
 
 Q) Can I include this as a jar library?
 
-A) No, at least not in any easy way I know of. Android (dx.jar) will complain about overriding system classes if you do and short of modifying the dalvik compiler sources (as adding options to dx.sh/dx.bat does not work), there is no easy way around it. Well, actually there sort of is, but it requires building with Ant (see next question) directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar. 
+A) No, at least not in any easy way I know of. Android (dx.jar) will complain about overriding system classes if you do and short of modifying the dalvik compiler sources (as adding options to dx.sh/dx.bat does not work), there is no easy way around it. Well, actually there sort of is, but it requires building with Ant (see next question) directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar.
 
-See: 
-https://code.google.com/p/android-rcs-ims-stack/issues/detail?id=42 
-http://code.google.com/p/dalvik/wiki/JavaxPackages 
-https://groups.google.com/forum/?fromgroups=#!topic/android-developers/msDX8ogYrd0 
+See:
+https://code.google.com/p/android-rcs-ims-stack/issues/detail?id=42
+http://code.google.com/p/dalvik/wiki/JavaxPackages
+https://groups.google.com/forum/?fromgroups=#!topic/android-developers/msDX8ogYrd0
 http://stackoverflow.com/questions/2680827/conversion-to-dalvik-format-failed-with-error-1-on-external-jar
 http://stackoverflow.com/questions/3284407/conversion-to-dalvik-format-failed-with-error-1-with-javax-net-socketfactory-cla
 http://code.google.com/p/maven-android-plugin/issues/detail?id=214
@@ -72,7 +72,7 @@ A) see: https://github.com/yareally/Java7-on-Android/blob/master/building_with_a
 
 Q) Can you get Java 8 working?
 
-A) Tried that and no go. If you have better luck, let me know. I would love to have lambdas. 
+A) Tried that and no go. If you have better luck, let me know. I would love to have lambdas.
 
  My attempts with ant lead to vague compile errors that may be jdk8 or Android. Needs more testing, but here's basically what I get so far: https://gist.github.com/yareally/b0d095fbd1ccd4b28fe8
 
