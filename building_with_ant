@@ -2,13 +2,13 @@
 
 2) Change:
 
-<property name="version.code" value="1.x" />
-<property name="version.name" value="1.x" />
+<property name="java.target" value="1.x" />
+<property name="java.source" value="1.x" />
 
 to:
 
-<property name="version.code" value="1.7" />
-<property name="version.name" value="1.7" />
+<property name="java.target" value="1.7" />
+<property name="java.source" value="1.7" />
 
 
 3) Rename <macrodef name="dex-helper"> to something like <macrodef name="_dex-helper"> so it uses 
