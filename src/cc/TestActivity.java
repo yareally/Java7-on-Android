@@ -28,12 +28,15 @@ package cc;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
+import cc.io._BufferedInputStream;
 import cc.io._FileInputStream;
 import cc.io._FileOutputStream;
 import cc.test.R;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestActivity extends Activity
 {
@@ -50,7 +53,8 @@ public class TestActivity extends Activity
             // obviously does not exist so our exception will be caught.
             Method multiCatchTest = getClass().getDeclaredMethod("doesNotExist");
         } catch (SecurityException | NoSuchMethodException | IllegalArgumentException e) {
-            Toast.makeText(this, "Multicatch exception was caught, yay",
+            Toast.makeText(this,
+                "Multicatch exception was caught, yay",
                 Toast.LENGTH_LONG).show();
         }
 
@@ -85,30 +89,55 @@ public class TestActivity extends Activity
                 getDaysInMonth(months[m])),
             Toast.LENGTH_LONG).show();
 
+        // showing "try with resources"
         try (_FileOutputStream fos = new _FileOutputStream("/sdcard/testfile.txt")) {
+            // integer literals work, yay
             fos.write(10_000);
             fos.write(20_000_000);
-            Toast.makeText(this, String.format("Written to testfile.txt: %d %d", 10_000, 20_000_000), Toast.LENGTH_LONG).show();
+
+            Toast.makeText(this,
+                String.format(
+                    "Written to testfile.txt: %d %d",
+                    10_000, 20_000_000),
+                Toast.LENGTH_LONG).show();
         } catch (IOException ioe) {
-            Toast.makeText(this, String.format("Error: %s", ioe.getMessage()),
+            Toast.makeText(this,
+                String.format(
+                    "Error: %s",
+                    ioe.getMessage()),
                 Toast.LENGTH_LONG).show();
         }
 
-        try (_FileInputStream fis = new _FileInputStream("/sdcard/testfile.txt")) {
+        try (_BufferedInputStream fis = new _BufferedInputStream(new _FileInputStream("/sdcard/testfile.txt"))) {
+            // to show "diamonds" working
+            List<Integer> readData = new ArrayList<>(4);
+            int nextInt;
+
+            while ((nextInt = fis.read()) == 1) {
+                readData.add(nextInt);
+            }
+
             Toast.makeText(
                 this,
-                String.format("Read data: %d %d %d %d",
-                    fis.read(),
-                    fis.read(),
-                    fis.read(),
-                    fis.read()),
+                String.format(
+                    "Read data from testfile.txt: %s",
+                    readData.toString()),
                 Toast.LENGTH_LONG).show();
         } catch (IOException ioe) {
-            Toast.makeText(this, String.format("Error: %s", ioe.getMessage()),
+            Toast.makeText(this,
+                String.format(
+                    "Error: %s",
+                    ioe.getMessage()),
                 Toast.LENGTH_LONG).show();
         }
     }
 
+    /**
+     * Demonstrates that string switches are working.
+     *
+     * @param month
+     * @return
+     */
     public static int getDaysInMonth(String month)
     {
         switch (month) {
