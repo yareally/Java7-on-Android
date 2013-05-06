@@ -19,6 +19,7 @@ Q) If I figure out how to get any other features working, may I commit them back
 
 A) Sure, just ask me. This was just a simple (weekend) attempt to see what was possible and by no means a massive project. I'd love to see more contributions and any corrections made.
 
+
 Q) Can I include this as a jar library?
 
 A) No, at least not in any easy way I know of. Android will complain about overriding system classes if you do and short of modifying the dalvik compiler sources, there is no easy way around it. Well, actually there sort of is, but it requires building with Ant directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar.
@@ -26,7 +27,7 @@ A) No, at least not in any easy way I know of. Android will complain about overr
 
 Q) Can you get Java 8 working?
 
-A) Tried that and no go. If you have better luck, let me know.
+A) Tried that and no go. If you have better luck, let me know. I would love to have lambdas.
 
 
 Q) Do you have example code showing things working?
