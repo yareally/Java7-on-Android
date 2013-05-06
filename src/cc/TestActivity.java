@@ -118,7 +118,7 @@ public class TestActivity extends Activity
                 Toast.LENGTH_LONG).show();
         }
 
-        try (_FileInputStream fis = new _FileInputStream("/sdcard/testfile.txt")) {
+        try (_BufferedInputStream fis = new _BufferedInputStream( new _FileInputStream("/sdcard/testfile.txt"))) {
             // to show "diamonds" working
             List<String> readData = new ArrayList<>(4);
             int nextInt;
