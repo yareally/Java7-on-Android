@@ -54,7 +54,7 @@ A) Sure, just ask me. This was just a simple (weekend) attempt to see what was p
 
 Q) Can I include this as a jar library?
 
-A) No, at least not in any easy way I know of. Android (dx.jar) will complain about overriding system classes if you do and short of modifying the dalvik compiler sources (as adding options to dx.sh/dx.bat does not work), there is no easy way around it. Well, actually there sort of is, but it requires building with Ant directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar. 
+A) No, at least not in any easy way I know of. Android (dx.jar) will complain about overriding system classes if you do and short of modifying the dalvik compiler sources (as adding options to dx.sh/dx.bat does not work), there is no easy way around it. Well, actually there sort of is, but it requires building with Ant (see next question) directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar. 
 
 See: 
 https://code.google.com/p/android-rcs-ims-stack/issues/detail?id=42 
@@ -64,6 +64,10 @@ http://stackoverflow.com/questions/2680827/conversion-to-dalvik-format-failed-wi
 http://stackoverflow.com/questions/3284407/conversion-to-dalvik-format-failed-with-error-1-with-javax-net-socketfactory-cla
 http://code.google.com/p/maven-android-plugin/issues/detail?id=214
 for more details.
+
+Q) So, how does it work with ant?
+
+A) see: https://github.com/yareally/Java7-on-Android/blob/master/building_with_ant
 
 
 Q) Can you get Java 8 working?
@@ -94,8 +98,3 @@ A) You would have to ask Google as all I can do is speculate.
 Q) Will this work on Eclipse/Netbeans/etc?
 
 A) Probably, but I don't really know how Android works on Eclipse/Netbeans, so you're on your own for that. Ant works, but requires some modifying of the build.xml to override some of the compilation time stuff.
-
-
-Q) So, how does it work with ant?
-
-A) see: https://github.com/yareally/Java7-on-Android/blob/master/building_with_ant
