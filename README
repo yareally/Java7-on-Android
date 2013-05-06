@@ -11,26 +11,30 @@ Using Java 7 on Android.
 
 --Frequently Asked Questions--
 
-
 Q) Help! I'm getting some error related to java: cannot find method addSuppressed(java.lang.Throwable). How do I fix this?
 
 A) You probably allowed your IDE auto-formatter to reformat the java.lang.* files you included from above or manually pasted the files into your IDE instead of importing/cloning them (which also triggered auto format). Modifying these files (even accidentally) is asking for trouble as such things can make the project revert back to using the internal Android Throwable instead of the project version. You can fix this by pasting the original file outside of your IDE or reclone the source again. I recommend setting the project java.lang.* package to be read only to prevent any accidental mishaps. It's also possible it might randomly still give you this error (with Intellij IDEA at least). If it does, just do the steps mentioned above.
+
 
 Q) Can I include this as a jar library?
 
 A) No, at least not in any easy way I know of. Android will complain about overriding system classes if you do and short of modifying the dalvik compiler sources, there is no easy way around it. Well, actually there sort of is, but it requires building with Ant directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar.
 
+
 Q) Can you get Java 8 working?
 
-Tried that and no go.
+A) Tried that and no go. If you have better luck, let me know.
+
 
 Q) Do you have example code showing things working?
 
 A) Yes, see TestActivity and Utils. Tested and working on Android 2.2+.
 
+
 Q) Will this work for other resource classes (like ObjectInputStream)?
 
 A) I'm sure it will, I just didn't include them. See the implemented InputStreams as a template.
+
 
 Q) So what works from Java 7?
 
