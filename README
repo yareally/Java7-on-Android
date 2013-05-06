@@ -15,9 +15,9 @@ Q) Help! I'm getting some error related to java: cannot find method addSuppresse
 
 A) You probably allowed your IDE auto-formatter to reformat the java.lang.* files you included from above or manually pasted the files into your IDE instead of importing/cloning them (which also triggered auto format). Modifying these files (even accidentally) is asking for trouble as such things can make the project revert back to using the internal Android Throwable instead of the project version. You can fix this by pasting the original file outside of your IDE or reclone the source again. I recommend setting the project java.lang.* package to be read only to prevent any accidental mishaps. It's also possible it might randomly still give you this error (with Intellij IDEA at least). If it does, just do the steps mentioned above.
 
-Q) If I figure out how to get any other features, can I commit them back to your repository?
+Q) If I figure out how to get any other features working, may I commit them back to your repository?
 
-A) Sure, just ask me. This was just a simple (weekend) attempt to see what was possible and by no means a massive project.
+A) Sure, just ask me. This was just a simple (weekend) attempt to see what was possible and by no means a massive project. I'd love to see more contributions and any corrections made.
 
 Q) Can I include this as a jar library?
 
