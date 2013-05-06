@@ -92,13 +92,21 @@ public class TestActivity extends Activity
         // showing "try with resources"
         try (_FileOutputStream fos = new _FileOutputStream("/sdcard/testfile.txt")) {
             // integer literals work, yay
-            fos.write(10_000);
-            fos.write(20_000_000);
+            Toast.makeText(this,
+                String.format(
+                    "Shown as 1_000 and 2_000 in the IDE, but shown as %d %d in Android as they should",
+                    1_000, 2_000),
+                Toast.LENGTH_LONG).show();
 
+            byte[] writeData = new byte[] {
+                (byte) 222, (byte) 128
+            };
+
+            fos.write(writeData);
             Toast.makeText(this,
                 String.format(
                     "Written to testfile.txt: %d %d",
-                    10_000, 20_000_000),
+                    222, 128),
                 Toast.LENGTH_LONG).show();
         } catch (IOException ioe) {
             Toast.makeText(this,
@@ -108,13 +116,13 @@ public class TestActivity extends Activity
                 Toast.LENGTH_LONG).show();
         }
 
-        try (_BufferedInputStream fis = new _BufferedInputStream(new _FileInputStream("/sdcard/testfile.txt"))) {
+        try (_FileInputStream fis = new _FileInputStream("/sdcard/testfile.txt")) {
             // to show "diamonds" working
-            List<Integer> readData = new ArrayList<>(4);
+            List<String> readData = new ArrayList<>(4);
             int nextInt;
 
             while ((nextInt = fis.read()) != -1) {
-                readData.add(nextInt);
+                readData.add(String.valueOf(nextInt));
             }
 
             Toast.makeText(
