@@ -58,4 +58,3 @@ Q) What doesn't work?
 Q) Will this work on Eclipse/Netbeans/etc?
 
 A) Probably, but I don't really know how Android works on Eclipse/Netbeans, so you're on your own for that. Ant works, but requires some modifying of the build.xml to override some of the compilation time stuff.
-This file was modified by IntelliJ IDEA 12.1.2 for binding GitHub repository
