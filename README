@@ -72,8 +72,9 @@ A) see: https://github.com/yareally/Java7-on-Android/blob/master/building_with_a
 
 Q) Can you get Java 8 working?
 
-A) Tried that and no go. If you have better luck, let me know. I would love to have lambdas.
+A) Tried that and no go. If you have better luck, let me know. I would love to have lambdas. 
 
+ My attempts with ant lead to vague compile errors that may be jdk8 or Android. Needs more testing, but here's basically what I get so far: https://gist.github.com/yareally/b0d095fbd1ccd4b28fe8
 
 Q) Won't this affect the entire Android System and not just my app?
 
