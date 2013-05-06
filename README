@@ -11,22 +11,39 @@ Using Java 7 on Android.
 
 --Frequently Asked Questions--
 
+Q) Does this really work on stock, unrooted/unmodified Android?
+
+A) Yup, because it's either using syntatic sugar features (which does not modify the bytecode) or it overrides the existing Android libraries.
+
 
 Q) Help! I'm getting some error related to java: cannot find method addSuppressed(java.lang.Throwable). How do I fix this?
 
 A) You probably allowed your IDE auto-formatter to reformat the java.lang.* files you included from above or manually pasted the files into your IDE instead of importing/cloning them (which also triggered auto format). Modifying these files (even accidentally) is asking for trouble as such things can make the project revert back to using the internal Android Throwable instead of the project version. You can fix this by pasting the original file outside of your IDE or reclone the source again. I recommend setting the project java.lang.* package to be read only to prevent any accidental mishaps. It's also possible it might randomly still give you this error (with Intellij IDEA at least). If it does, just do the steps mentioned above.
 
+
+Q) If I figure out how to get any other features working, may I commit them back to your repository?
+
+A) Sure, just ask me. This was just a simple (weekend) attempt to see what was possible and by no means a massive project. I'd love to see more contributions and any corrections made.
+
+
 Q) Can I include this as a jar library?
 
 A) No, at least not in any easy way I know of. Android will complain about overriding system classes if you do and short of modifying the dalvik compiler sources, there is no easy way around it. Well, actually there sort of is, but it requires building with Ant directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar.
 
+
 Q) Can you get Java 8 working?
 
-Tried that and no go.
+A) Tried that and no go. If you have better luck, let me know. I would love to have lambdas.
+
 
 Q) Do you have example code showing things working?
 
-A) Yes, see TestActivity and Utils. Tested and working on Android 2.2+.
+A) Yes, see TestActivity. Tested and working on Android 2.2+.
+
+
+Q) Will this work for other resource classes (like ObjectInputStream)?
+
+A) I'm sure it will, I just didn't include them. See the implemented InputStreams as a template.
 
 
 Q) So what works from Java 7?
@@ -55,7 +72,11 @@ Q) What doesn't work?
 4) invokedynamic
 
 
+Q) Why doesn't Google implement these features themselves if they work?
+
+A) You would have to ask Google as all I can do is speculate.
+
+
 Q) Will this work on Eclipse/Netbeans/etc?
 
 A) Probably, but I don't really know how Android works on Eclipse/Netbeans, so you're on your own for that. Ant works, but requires some modifying of the build.xml to override some of the compilation time stuff.
-This file was modified by IntelliJ IDEA 12.1.2 for binding GitHub repository
