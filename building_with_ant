@@ -56,7 +56,7 @@ to:
    <path refid="project.target.class.path" />
 </path>
 
-This will point to your project library so you can use the modded files as a jar.
+This will point to your project library so you can use the modded files as a jar. Make sure to name your jar file whatever you named it above (core.jar for this example). This file will go in your project_dir/libs directory.
 
 6) Inside of <javac encoding="${java.encoding}", change 
 
