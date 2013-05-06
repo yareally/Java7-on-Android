@@ -101,7 +101,7 @@ public class TestActivity extends Activity
 
             // binary literal also works
             byte[] writeData = {
-                (byte) 0b11011110, (byte) 0b10000000
+                (byte) 0b0101_1110, (byte) 0b1000_0000
             };
 
             fos.write(writeData);
