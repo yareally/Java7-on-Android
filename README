@@ -8,6 +8,8 @@ Using (features) Java 7 on Android.
 
 4) Set your project to use the Java 7 language level and the Android SDK to build off of JDK 7.
 
+5) If you happen to run into issues, I probably have your solution somewhere below just from personal experience. It took much more time to get things initially play nice than it did anything else.
+
 
 --Frequently Asked Questions--
 
@@ -28,13 +30,13 @@ A) All the syntactic sugar stuff and also "try with resources." (see below)
 
 Q) What doesn't work?
 
-1) java.nio.*
+1) java.nio.* (needs native backend code for that and this was just a weekend project so far)
 
-2) threading and multiple processor enhancements (fork/join)
+2) Threading and multiple processor enhancements (fork/join). Don't how nicely that would play with Android if it possible.
 
-3) File change notifications (watch/notify file api stuff)
+3) File change notifications (watch/notify file api stuff). Not sure about this and a sandboxed app model.
 
-4) invokedynamic
+4) invokedynamic (not possible anyways due to dalvik restrictions, unless one wants to extend dalvik too)
 
 
 Q) Does this really work on stock, unrooted/unmodified Android?
@@ -74,9 +76,10 @@ A) see: https://github.com/yareally/Java7-on-Android/blob/master/building_with_a
 
 Q) Can you get Java 8 working?
 
-A) Tried that and no go. If you have better luck, let me know. I would love to have lambdas.
+A) Tried that and no go (for now). If you have better luck, let me know. I would love to have lambdas. Until then, there's Scala, Kotlin and Clojure for Android.
 
- My attempts with ant lead to vague compile errors that may be jdk8 or Android. Needs more testing, but here's basically what I get so far: https://gist.github.com/yareally/b0d095fbd1ccd4b28fe8
+JDK8 is a total rewrite and backporting much more complex than switching the SDK and pulling a class + interface. It's possible, just something longer term. Tvernum (https://bitbucket.org/tvernum/syntactic/wiki/ConvertingJava8To7) has been working on backporting Lambdas already, but does not have a lot of time currently to finish it.
+
 
 Q) Won't this affect the entire Android System and not just my app?
 
@@ -90,12 +93,12 @@ A) Yes, see TestActivity. Tested and working on Android 2.2+.
 
 Q) Will this work for other resource classes (like ObjectInputStream)?
 
-A) I'm sure it will, I just didn't include them. See the implemented InputStreams as a template.
+A) I'm sure it will, I just didn't include them. See the implemented InputStreams as a template. I had to wrap them versus extending due to IDE complaints I was getting. Moving them to a seperate module might solve that though.
 
 
 Q) Why doesn't Google implement these features themselves if they work?
 
-A) You would have to ask Google as all I can do is speculate.
+A) You would have to ask Google as all I can do is speculate. 
 
 
 Q) Will this work on Eclipse/Netbeans/etc?
