@@ -46,6 +46,8 @@ Q) Help! I'm getting some error related to java: cannot find method addSuppresse
 
 A) You probably allowed your IDE auto-formatter to reformat the java.lang.* files or the cc.io.* files you included from above or manually pasted the files into your IDE instead of importing/cloning them (which also triggered auto format). Modifying these files (even accidentally) is asking for trouble as such things can make the project revert back to using the internal Android Throwable instead of the project version. You can fix this by pasting the original file outside of your IDE or reclone the source again. I recommend setting the project java.lang.* package and wherever you put the cc.io.* package to be read only to prevent any accidental mishaps. The main issue is removing the full paths on things like like java.lang.AutoClosable really. Dalvik has troubles finding it if you make it a relative path.
 
+Alternatively, you can make java.lang.* and cc.io.* their own module/package in your IDE and place the dependency for it in your main project above the Android API/Java JDK dependencies.
+
 
 Q) If I figure out how to get any other features working, may I commit them back to your repository?
 
