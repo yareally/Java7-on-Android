@@ -1,3 +1,5 @@
+Prefer Scala? See my guide for using Scala with Intellij IDEA without additional plugins or external building: https://github.com/yareally/android-scala-intellij-no-sbt-plugin
+
 Using (features) Java 7 on Android.
 
 1) Clone this project.
