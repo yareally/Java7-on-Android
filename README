@@ -1,5 +1,7 @@
 Prefer Scala? See my guide for using Scala with Intellij IDEA without additional plugins or external building: https://github.com/yareally/android-scala-intellij-no-sbt-plugin
 
+Miss not having operator overloading like C#? Try https://github.com/amelentev/java-oo. You'll need to do the fixes located here any Intellij IDEA based IDE: https://github.com/amelentev/java-oo/issues/8#issuecomment-18272575
+
 Using (features) Java 7 on Android.
 
 1) Clone this project.
