@@ -64,7 +64,7 @@ A) Sure, just ask me. This was just a simple (weekend) attempt to see what was p
 
 Q) Can I include this as a jar library?
 
-A) No, at least not in any easy way I know of. Android (dx.jar) will complain about overriding system classes if you do and short of modifying the dalvik compiler sources (as adding options to dx.sh/dx.bat does not work), there is no easy way around it. Well, actually there sort of is, but it requires building with Ant (see next question) directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar.
+A) Maybe. Intellij IDEA 13 has an option to allow "core libraries" to be overrided now, but have not tried it yet. Though without that, Android (dx.jar) will complain about overriding system classes if you do and short of modifying the dalvik compiler sources (as adding options to dx.sh/dx.bat does not work), there is no easy way around it. Well, actually there sort of is, but it requires building with Ant (see next question) directly or perhaps Maven as you can get around the issue with that. Intellij though won't like it if you are using the default method of building if you try to include these sources as a jar.
 
 See:
 https://code.google.com/p/android-rcs-ims-stack/issues/detail?id=42
@@ -82,9 +82,9 @@ A) see: https://github.com/yareally/Java7-on-Android/blob/master/building_with_a
 
 Q) Can you get Java 8 working?
 
-A) Tried that and no go (for now). If you have better luck, let me know. I would love to have lambdas. Until then, there's Scala, Kotlin and Clojure for Android.
+A) Lambdas work if one uses https://github.com/orfjackal/retrolambda. Nothing else does as far as I know yet.
 
-JDK8 is a total rewrite and backporting much more complex than switching the SDK and pulling a class + interface. It's possible, just something longer term. Tvernum (https://bitbucket.org/tvernum/syntactic/wiki/ConvertingJava8To7) has been working on backporting Lambdas already, but does not have a lot of time currently to finish it.
+JDK8 is a total rewrite and backporting much more complex than switching the SDK and pulling a class + interface. It's possible, just something longer term. If you really need more programming features than mentioned here, I reccomend trying Scala or Kotlin on Android.
 
 
 Q) Won't this affect the entire Android System and not just my app?
