@@ -31,6 +31,8 @@ A) All the syntactic sugar stuff and also "try with resources." (see below)
 
 5) Type inference on collections (a.k.a. "diamonds")
 
+6) Java 8 Lambdas are also now possible on Android via https://github.com/orfjackal/retrolambda. Though I haven't found an easy to add it to the normal Intellij build process without using Ant, Maven or Gradle (Intellij IDEA 13). Modding the Android plugin would work, but with Intellij IDEA 13 nearing completion soon, not sure it's worth it.
+
 
 Q) What doesn't work?
 
