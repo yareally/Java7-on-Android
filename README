@@ -1,3 +1,5 @@
+Until finalized/merged, detailed instructions in markdown for Intellij IDEA 13 can be found here: https://github.com/yareally/Java7-on-Android/tree/Intellij-13
+
 Prefer Scala? See my guide for using Scala with Intellij IDEA without additional plugins or external building: https://github.com/yareally/android-scala-intellij-no-sbt-plugin
 
 Miss not having operator overloading like C#? Try https://github.com/amelentev/java-oo. You'll need to do the fixes located in the following link for any Intellij IDEA based IDE: https://github.com/amelentev/java-oo/issues/8#issuecomment-18272575
