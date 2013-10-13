@@ -27,7 +27,7 @@ To help bring Android Java development into the modern era, I've tested and comp
 
 ## Setting up on Intellij IDEA 13 (and probably Android Studio)
 
-The new Intellij finally has a built in option to override core libraries of Android, making much of the above far easier.
+The new Intellij finally has a built in option to override core libraries of Android, making much of the above far easier. The instructions below take advantage of this and allow us to override the core libraries with a jar within Intellij IDEA normal build process. If using Intellij IDEA 12, you'll have to use the old fallback directions as this will not work
 
 
 1. Clone this project or grab core.jar from the libs directory.
