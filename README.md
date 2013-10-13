@@ -14,8 +14,8 @@ To help bring Android Java development into the modern era, I've tested and comp
 * Multiple exceptions caught in one catch block
 * Integer (and binary) literals for readability
 * Type inference on collections (a.k.a. "diamonds")
-* [Java 8 lambdas (instructions coming soon)](https://github.com/orfjackal/retrolambda)
-* [Java 7 fork-join (instructions coming soon)](http://gee.cs.oswego.edu/dl/concurrency-interest/index.html)
+* [Java 8 lambdas thanks to Orfjackal (instructions coming soon)](https://github.com/orfjackal/retrolambda)
+* [Java 7 fork-join via JSR-166 (instructions coming soon)](http://gee.cs.oswego.edu/dl/concurrency-interest/index.html)
 
 
 ## Things that don't Work
@@ -60,7 +60,7 @@ If you're having an issue related to either, feel free to file an issue and I wi
 
 ### Can I use Gradle with this?
 
-I still have to test it, but it'll probably work as long as you add the jar as a dependency in Gradle instead of under Intellij's build system. Don't forget to [enable the core library](imgs/core-libs.png) setting though. Gradle is also the [recommended way](https://github.com/evant/gradle-retrolambda) to use Java 8 lambdas via the Gradle plugin until I  find a method to do it without Gradle.
+I still have to test it, but it'll probably work as long as you add the jar as a dependency in Gradle instead of under Intellij's build system. Don't forget to [enable the core library](imgs/core-libs.png) setting though. Gradle is also the recommended way to use Java 8 lambdas via [Evant's Gradle plugin](https://github.com/evant/gradle-retrolambda) until I  find a method to do it without Gradle.
 
 
 ### Can I use Ant?
