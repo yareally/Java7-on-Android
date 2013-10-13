@@ -7,7 +7,7 @@ Don't worry, you're not alone. However, there's a solution!
 To help bring Android Java development into the modern era, I've tested and compiled a list of Java 7 and 8 features that will work on Android. Some of them, I discovered through a bit of testing and modding, while others depend on libraries maintained by others independently. Without further BS, here's a list of everything that can be used without issues on at least Android 2.2+.
 
 
-## Possible Features
+## Possible (Working) Features
 
 * Try with resources (auto closing file handlers)
 * String switches
