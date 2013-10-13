@@ -53,6 +53,11 @@ The new Intellij finally has a built in option to override core libraries of And
 Yup, because it's either using syntactic sugar features (which does not modify the bytecode) or it overrides the existing Android libraries.
 
 
+### I'm having a problem unrelated to setting up the above configuration or running the provided example code.
+
+If you're having an issue related to either, feel free to file an issue and I will try to help you out when I have a few moments. If you are having an issue pertaining to lambdas or fork-join involving possible bugs in those libraries, please contact the maintainers of each project respectfully.
+
+
 ### Can I use Gradle with this?
 
 I still have to test it, but it'll probably work as long as you add the jar as a dependency in Gradle instead of under Intellij's build system. Don't forget to [enable the core library](imgs/core-libs.png) setting though. Gradle is also the [recommended way](https://github.com/evant/gradle-retrolambda) to use Java 8 lambdas via the Gradle plugin until I  find a method to do it without Gradle.
@@ -85,4 +90,4 @@ I don't work for Google and cannot answer that any better than any other non-emp
 
 ### Will this work on Eclipse/Netbeans/etc?
 
-Probably, but I don't really know how Android works on Eclipse/Netbeans, so you're on your own for that. Ant works, but [requires some modifying of the build.xml](https://github.com/yareally/Java7-on-Android/blob/master/building_with_ant) to override some of the compilation time stuff.
+Probably, but I don't really know how Android works on Eclipse/Netbeans, so you're on your own for that. If someone wishes to document the setup process for either, let me know and I will add it here when you're done. Aside from that, Ant works outside of Intellij, but [requires some modifying of the build.xml](https://github.com/yareally/Java7-on-Android/blob/master/building_with_ant) to override some of the compilation time stuff.
