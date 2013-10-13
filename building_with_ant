@@ -11,7 +11,7 @@ to:
 <property name="java.source" value="1.7" />
 
 
-3) Rename <macrodef name="dex-helper"> to something like <macrodef name="_dex-helper"> so it uses 
+3) Rename <macrodef name="dex-helper"> to something like <macrodef name="_dex-helper"> so it uses
 the modified one in #4. Commenting it out will probably also work fine.
 
 4) Override dex-helper with this modified macrodef (the important lines are --core-library and --no-strict):
@@ -57,13 +57,13 @@ the modified one in #4. Commenting it out will probably also work fine.
    <path refid="project.target.class.path" />
 </path>
 
-This will point to your project library so you can use the modded files as a jar. 
-Make sure to name your jar file whatever you named it above (core.jar for this example). 
+This will point to your project library so you can use the modded files as a jar.
+Make sure to name your jar file whatever you named it above (core.jar for this example).
 This file will go in your project_dir/libs directory.
 
-6) Inside of <javac encoding="${java.encoding}", change 
+6) Inside of <javac encoding="${java.encoding}", change
 
-bootclasspathref="project.javac.classpath"
+bootclasspathref="project.target.class.path"
 
 to: bootclasspathref="project.bootpath"
 

@@ -59,13 +59,18 @@ public class TestActivity extends Activity
                 Toast.LENGTH_LONG).show();
         }
 
-        /* Java 8 won't work...
 
-        Comparator<Integer> cmp = (x, y) -> (x < y) ? -1 : ((x > y) ? 1 : 0);
+        /* Java 8 won't work... */
+/*        Runnable r2 = () -> {
+            System.out.println("Second runnable");
+        };
+        r2.run();*/
+/*        Comparator<Integer> cmp = (x, y) -> (x < y) ? -1 : ((x > y) ? 1 : 0);
 
         if (cmp.compare(1, 2) == -1) {
             Toast.makeText(this, "1 is less than 2", Toast.LENGTH_LONG).show();
         }*/
+
 
         String[] months = {
             "JAN",
