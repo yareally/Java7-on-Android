@@ -4,14 +4,14 @@ Feeling like you're stuck in 2006 while developing apps and libraries for Androi
 
 Don't worry, you're not alone. However, there's a solution!
 
-To help bring Android Java development into the modern era, I've tested and compiled a list of Java 7 and 8 features that will work on Android. Some of them, I discovered through a bit of testing and modding, while others depend on libraries maintained by others. Without further BS, here's a list of everything that can be used without issues on at least Android 2.2+.
+To help bring Android Java development into the modern era, I've tested and compiled a list of Java 7 and 8 features that will work on Android. Some of them, I discovered through a bit of testing and modding, while others depend on libraries maintained by others independently. Without further BS, here's a list of everything that can be used without issues on at least Android 2.2+.
 
 
 ## Possible Features
 
 * Try with resources (auto closing file handlers)
 * String switches
-* Multiple exception caught in one catch block
+* Multiple exceptions caught in one catch block
 * Integer (and binary) literals for readability
 * Type inference on collections (a.k.a. "diamonds")
 * [Java 8 lambdas (instructions coming soon)](https://github.com/orfjackal/retrolambda)
@@ -44,3 +44,45 @@ The new Intellij finally has a built in option to override core libraries of And
 7. The final setting to change under the project settings area is under "Project." Change the project language level to 7.0 (8.0 if you are going to use lambdas).
 ![alt text](imgs/lang-level.png "Add core.jar as a library")
 8. Run this project's Android TestActivity to ensure everything is set up properly. If it does not run or you see syntax errors in Intellij, then ensure you settings looks similar to my screen shots.
+
+
+## FAQ
+
+### Does this really work on stock, unrooted/unmodified Android?
+
+Yup, because it's either using syntactic sugar features (which does not modify the bytecode) or it overrides the existing Android libraries.
+
+
+### Can I use Gradle with this?
+
+I still have to test it, but it'll probably work as long as you add the jar as a dependency in Gradle instead of under Intellij's build system. Don't forget to [enable the core library](imgs/core-libs.png) setting though. Gradle is also the [recommended way](https://github.com/evant/gradle-retrolambda) to use Java 8 lambdas via the Gradle plugin until I  find a method to do it without Gradle.
+
+
+### Can I use Ant?
+
+If you need to use Ant, [I have a guide for that](https://github.com/yareally/Java7-on-Android/blob/master/building_with_ant).
+
+
+### Won't this affect the entire Android System and not just my app?
+
+Since every Android app is sandboxed, only your code is affected.
+
+
+### Do you have example code showing things working?
+
+Yes, please see the TestActivity included in this project.
+
+
+### Will this work for other resource classes (like ObjectInputStream)?
+
+I'm sure it will, I just didn't include them in the jar. See the implemented InputStreams source as a template in the jar. I had to wrap them versus extending due to IDE complaints I was getting (in IDEA 12). Moving them to a separate module might solve that though or IDEA 13 may no longer require that (need to test it).
+
+
+### Why doesn't Google implement these features themselves if they work?
+
+I don't work for Google and cannot answer that any better than any other non-employee. Perhaps eventually they will add them, but it's probably more likely they will add official support for a language alternative to Java first.
+
+
+### Will this work on Eclipse/Netbeans/etc?
+
+Probably, but I don't really know how Android works on Eclipse/Netbeans, so you're on your own for that. Ant works, but [requires some modifying of the build.xml](https://github.com/yareally/Java7-on-Android/blob/master/building_with_ant) to override some of the compilation time stuff.
