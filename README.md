@@ -2,9 +2,10 @@
 
 Feeling like you're stuck in 2006 while developing apps and libraries for Android?
 
-Fear not, I and others have felt your pain. To help bring Android Java development into the modern era, I've tested and compiled a list of Java 7 and 8 features that will work on Android. Some of them, I discovered through a bit of testing and modding, while others depend on libraries maintained by others. Without further BS, here's a list of everything that can be used without issues on at least Android 2.2+.
+Don't worry, you're not alone. However, there's a solution!
 
----
+To help bring Android Java development into the modern era, I've tested and compiled a list of Java 7 and 8 features that will work on Android. Some of them, I discovered through a bit of testing and modding, while others depend on libraries maintained by others. Without further BS, here's a list of everything that can be used without issues on at least Android 2.2+.
+
 
 ## Possible Features
 
@@ -13,10 +14,9 @@ Fear not, I and others have felt your pain. To help bring Android Java developme
 * Multiple exception caught in one catch block
 * Integer (and binary) literals for readability
 * Type inference on collections (a.k.a. "diamonds")
-* Java 8 lambdas
-* Java 7 fork-join
+* [Java 8 lambdas (instructions coming soon)](https://github.com/orfjackal/retrolambda)
+* [Java 7 fork-join (instructions coming soon)](http://gee.cs.oswego.edu/dl/concurrency-interest/index.html)
 
----
 
 ## Things that don't Work
 
@@ -24,7 +24,6 @@ Fear not, I and others have felt your pain. To help bring Android Java developme
 * File change notifications (watch/notify file api stuff)
 * Invoke Dynamic and features that rely on it (would require modifying Dalvik to support it)
 
----
 
 ## Setting up on Intellij IDEA 13 (and probably Android Studio)
 
