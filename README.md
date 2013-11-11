@@ -6,7 +6,7 @@ Don't worry, you're not alone. However, there's a solution!
 
 To help bring Android Java development into the modern era, I've tested and compiled a list of Java 7 and 8 features that will work on Android. Some of them, I discovered through a bit of testing and modding, while others depend on libraries maintained by others independently. Without further BS, here's a list of everything that can be used without issues on at least Android 2.2+.
 
-## Google Officially Acknowledges Java 7 Features Work on Android
+## Google Now Officially Supports Java 7 on Android
 
 Starting with Android 4.4, [Google has declared officially](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Using-sourceCompatibility-1.7) that you can use Java 7 features with build-tools version 19. Directions for how to set it up with Gradle can be found on [tools.android.com](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Using-sourceCompatibility-1.7).
 
